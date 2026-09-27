@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ALERTA DE BATTLE ROYALE 🚨</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #08080a;
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 20px;
+    }
+
+    /* Fondo con efecto de llamas y humo */
+    .bg-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: 
+        radial-gradient(circle at 50% 100%, rgba(255, 69, 0, 0.4), transparent 70%),
+        radial-gradient(circle at 50% 0%, rgba(255, 165, 0, 0.2), transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .container {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 480px;
+      width: 100%;
+      background: rgba(18, 18, 22, 0.95);
+      padding: 30px 20px;
+      border-radius: 12px;
+      border: 3px solid #ff4500;
+      box-shadow: 0 0 25px rgba(255, 69, 0, 0.6), inset 0 0 15px rgba(255, 140, 0, 0.3);
+    }
+
+    h1 {
+      color: #ffaa00;
+      font-size: 1.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 3px 3px 0px #000, 0 0 10px #ff4500;
+      margin-bottom: 8px;
+    }
+
+    p.subtitle {
+      color: #bbb;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      margin-bottom: 25px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Botón interfaz Free Fire */
+    .ff-btn {
+      background: linear-gradient(180deg, #ff8c00 0%, #ff2200 100%);
+      color: #fff;
+      font-family: 'Impact', 'Arial Black', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 1.5px;
+      padding: 15px 30px;
+      border: 2px solid #ffea00;
+      border-radius: 6px;
+      cursor: pointer;
+      text-transform: uppercase;
+      box-shadow: 0 5px 0px #8b0000, 0 0 15px rgba(255, 69, 0, 0.8);
+      transition: all 0.1s ease;
+      clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+    }
+
+    .ff-btn:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0px #8b0000;
+    }
+
+    /* Tarjeta del mensaje */
+    .card {
+      display: none;
+      background: rgba(30, 30, 35, 0.95);
+      padding: 20px;
+      border-radius: 8px;
+      border: 2px solid #ffaa00;
+      margin-top: 10px;
+      animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.8);
+    }
+
+    .card h2 {
+      color: #ffcc00;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      text-shadow: 2px 2px 0px #000;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: #eee;
+      font-family: 'Arial', sans-serif;
+      line-height: 1.5;
+      font-size: 1.05rem;
+      font-weight: bold;
+    }
+
+    .card .highlight {
+      color: #ff3333;
+      text-transform: uppercase;
+    }
+
+    .icons-row {
+      font-size: 2rem;
+      margin-top: 15px;
+    }
+
+    /* Animación de caída */
+    .ff-item {
+      position: fixed;
+      top: -10vh;
+      font-size: 2rem;
+      user-select: none;
+      pointer-events: none;
+      z-index: 5;
+      animation: fall linear forwards;
+    }
+
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(0.5); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(105vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-overlay"></div>
+
+  <div class="container">
+    <h1>🚨 CITACIÓN DE EMERGENCIA 🚨</h1>
+    <p class="subtitle">SALA DE ESPERA — DÚO INCOMPLETO</p>
+
+    <button class="ff-btn" id="openBtn" onclick="abrirRegalo()">🔥 ABRIR ORDEN 🔥</button>
+
+    <div class="card" id="letter">
+      <h2>¡HABLA, PRIMO! 🤡🇵🇪</h2>
+      <p>
+        A ver Premu...<br><br>
+        ¡Imatataq ruwachkanki apuray  rakiasun!<br><br>
+        <span class="highlight">Conéctate de una vez manco de mrd, te voy a acarrear más bien.</span> 🗿🔥<br><br>
+        Mas bien no me voy a reir de ti <span class="highlight">cuando te mueras</span> primero. 📦💨<br><br>
+        ¡Entra ya mrd que aburee jugar solo!
+      </p>
+      <div class="icons-row">📦 🔫 🤡 💀 💥</div>
+    </div>
+  </div>
+
+  <script>
+    function abrirRegalo() {
+      document.getElementById('openBtn').style.display = 'none';
+      document.getElementById('letter').style.display = 'block';
+
+      // Lluvia de ítems de Free Fire
+      setInterval(createFFItem, 250);
+    }
+
+    function createFFItem() {
+      const item = document.createElement('div');
+      item.classList.add('ff-item');
+      
+      const items = ['📦', '💥', '🔥', '💀', '🤡', '🛡️', '👑'];
+      item.innerText = items[Math.floor(Math.random() * items.length)];
+      
+      item.style.left = Math.random() * 90 + 'vw';
+      item.style.animationDuration = Math.random() * 2 + 1.5 + 's';
+      
+      document.body.appendChild(item);
+
+      setTimeout(() => {
+        item.remove();
+      }, 4000);
+    }
+  </script>
+</body>
+</html>
